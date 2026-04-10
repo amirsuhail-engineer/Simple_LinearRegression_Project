@@ -8,7 +8,7 @@ from flask import Flask,render_template,request
 import pickle
 import sklearn
 from sklearn.linear_model import LinearRegression
-with open("SLR_MODEL.pkl","rb") as f:
+with open("SLR_Model.pkl","rb") as f:
     m = pickle.load(f) # m -> model
 
 
@@ -24,6 +24,7 @@ def fun3():
     b = [np.array(a)] # [[11]]
     sol = m.predict(b)[0]  # a = [12] -> a[0] -> 12
     return render_template("index.html" , prediction_text = sol)
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
